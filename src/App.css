@@ -1,109 +1,34 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
-
-.tip-app {
-  background: hsl(185, 41%, 84%);
-  height: 935px;
-  font-size: 24px;
-  font-family: 'Space Mono', monospace;
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+.tip-app{
+  font-family: 'Space Mono', monospace;;
+  background-color:  hsl(185, 41%, 84%)
 }
-.tip-app-container {
-  position: absolute;
-  width: 100%;
-  border-top-left-radius: 35px;
-  border-top-right-radius: 35px;
-  background-color: white;
-  margin-top: 150px;
-}
-.tip-app-content {
-  margin: 40px 31px 0px 31px;
-}
-.bill-section {
+.tip-title{
   display: flex;
   flex-direction: column;
-}
-.bill-section div {
-  padding-left: 16px;
-  display: flex;
-  background-color: hsl(189, 41%, 97%);
-  height: 49px;
-  border-radius: 5px;
-  justify-content: space-between;
-  align-items: center;
-}
-.bill-section input {
+  align-items: auto;
+  margin: 0 auto;
+  width: 100px;
+  height: 54px;
   font-size: 24px;
-  background-color: hsl(189, 41%, 97%);
-  direction: rtl;
-  border: none;
-  font-family: "Courier New", Courier, monospace;
-  font-weight: 700;
-  text-align: right;
-  /* opacity: 0; */
+  letter-spacing: 7px;
+  padding-bottom: 38px;
+  padding-top: 46px;
 }
-.bill-section input:focus {
- outline: none;
-  color: hsl(183, 100%, 15%);
-}
+.tip-app-container{
+  background: white;
+  border-radius: 15px;
 
-.bill-section label, .tip-section p {
-  font-weight: 700;
-  font-size: 20px;
-  margin-bottom: 11px;
-  color: hsl(183, 100%, 15%);
 }
-.dollar{
-  font-size: 20px;
-  font-family:Arial, Helvetica, sans-serif;
-  color: hsl(184, 14%, 56%);
-}
-.tip-section{
-  width: 100%;
-  margin-bottom: 38px;
-}
-.tip-section-container{
-  display: grid;
-  grid-template-columns: auto auto;
-  gap: 17px;
-}
-.tip-section button{
-  height: 49px;
-  width: 155px;
-  font-size: 24px;
-  text-align: center;
-  font-family: "Courier New", Courier, monospace;
-  font-weight: 700;
-  border-radius: 7px;
-  background-color: hsl(183, 100%, 15%);
-  color: hsl(189, 41%, 97%);
-  border: none;
-}
-.summary-section-container{
-  margin-top: 32px;
-  height: 256px;
-  width: 100%;
-  background: hsl(183, 100%, 15%);
-  border-radius: 12px;
+.tip-app-content{
   display: flex;
   flex-direction: column;
-  /* margin-bottom: 31px; */
+  margin: 0 28px;
 }
-.summary-section-container button{
-  width: 90%;
-  height: 47px;
-  font-size: 24px;
+.desktop{
+  padding: 35px 0 0 0;
 }
-.tip-amount{
-  font-size: 16px;
-  font-weight: 700;
-  color: hsl(189, 41%, 97%);
+.bill-section label, .tip-section label{
+  font-size: 18px;
+  color: hsl(183, 100%, 15%);
 }
-.per{
-  font-size: 16px;
-}
-.tip-amount-summary-section{
-  display: flex;
-  margin: 0;
-  padding: 0;
-  justify-content: space-between;
-}
-
