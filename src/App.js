@@ -1,30 +1,37 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { useState } from "react";
 
 function App() {
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState(null);
   const [tipAmount, setTipAmount] = useState(0);
   const [tipRate, setTipRate] = useState(5);
-  const [people, setPeople] = useState(null);
+  const [people, setPeople] = useState("");
   const [peramount, setPerAmount] = useState(0);
 
   const onClictButton = (e) => {
-    setTipAmount(
-      ((amount * (e.target.value / 100)) / people).toPrecision(4)
-    );
-    setTipRate(e.target.value / 100);
-    setPerAmount((c) => (c = e.target.value / people)).toPrecision(4);
-      
+    if (people === ""){
+      setTipAmount(
+        ((amount * (e.target.value / 100)) / 1).toPrecision(4)
+      );
+      setPerAmount((c) => (c = amount *  (e.target.value/100) / 1)).toPrecision(4);
+    }else{
+      setTipAmount(
+        ((amount * (e.target.value / 100)) / people).toPrecision(4)
+      );
+      setPerAmount(
+        ((amount * (e.target.value / 100)) / people).toPrecision(4)
+      );
+    }
+     
     console.log(tipRate);
   };
   const onChangeAmount = (e) => {
       if (e.target.value.trim() === "") {
-        setAmount(0);
+        setAmount(null);
         setTipAmount(0);
       }
 
-      if( people == null && e.target.value.trim() !== ""){
+      if( people === "" && e.target.value.trim() !== ""){
         setAmount(e.target.value);
         setTipAmount(
           ((e.target.value * (tipRate / 100)) / 1).toPrecision(4)
@@ -32,7 +39,7 @@ function App() {
         setPerAmount((c) => (c = e.target.value / 1)).toPrecision(4);
       }
       
-      
+      console.log("typing")
     
   };
   const onChangePeople = (e) => {
@@ -42,6 +49,7 @@ function App() {
         (c) => (c = ((amount * (tipRate / 100)) / 1).toPrecision(4))
       );
       setPerAmount(amount/1)
+      setPeople("")
     } else {
       setPeople((c) => (c = e.target.value));
       setTipAmount(
