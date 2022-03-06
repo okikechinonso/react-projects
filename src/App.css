@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-.tip-app{
-  font-family: 'Space Mono', monospace;;
-  background-color:  hsl(185, 41%, 84%)
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+.tip-app {
+  font-family: "Space Mono", monospace;
+  background-color: hsl(185, 41%, 84%);
 }
-.tip-title{
+.tip-title {
   display: flex;
   flex-direction: column;
   align-items: auto;
@@ -14,21 +14,200 @@
   letter-spacing: 7px;
   padding-bottom: 38px;
   padding-top: 46px;
+  font-weight: 700;
 }
-.tip-app-container{
+.tip-app-container {
   background: white;
   border-radius: 15px;
-
 }
-.tip-app-content{
+.tip-app-content {
   display: flex;
   flex-direction: column;
   margin: 0 28px;
 }
-.desktop{
+.desktop {
   padding: 35px 0 0 0;
 }
-.bill-section label, .tip-section label{
+.bill-section {
+  margin-bottom: 38px;
+}
+.bill-section label,
+.tip-section label {
   font-size: 18px;
   color: hsl(183, 100%, 15%);
+  font-weight: 700;
+}
+
+.bill-section div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 49px;
+  background: hsl(189, 41%, 97%);
+  border-radius: 7px;
+}
+.dollar {
+  font-size: 24px;
+  padding-left: 18px;
+  color: hsl(184, 14%, 56%);
+}
+.bill-section input {
+  font-size: 24px;
+  border: none;
+  background: hsl(189, 41%, 97%);
+  direction: rtl;
+  font-family: "Space Mono", monospace;
+}
+.tip-section input,
+.bill-section input {
+  padding-right: 18px;
+  width: 80%;
+}
+.tip-section input:focus,
+.bill-section input:focus {
+  outline: none;
+}
+.tip-section {
+  margin-bottom: 38px;
+}
+.tip-section-container {
+  display: flex;
+  flex-direction: column;
+}
+.tip-section-container  {
+  display: grid;
+  margin-bottom: 17px;
+  grid-template-columns: 1fr 1fr;
+  gap: 17px;
+  /* justify-content: space-between; */
+}
+.tip-section-container button{
+  height: 48px;
+  /* width: 135px; */
+  padding-left: 17px;
+  background: hsl(183, 100%, 15%);
+  color: hsl(189, 41%, 97%);
+  font-size: 24px;
+  border-radius: 5px;
+  border: none;
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+}
+.custom {
+  font-size: 24px;
+  border-radius: 5px;
+  border: none;
+  /* height: 48px;
+  width: 135px; */
+  background-color: hsl(185, 41%, 84%) !important;
+  color: hsl(183, 100%, 15%) !important;
+}
+
+.tip-section-container div button:focus {
+  background: #5ea191;
+  color: hsl(183, 100%, 15%);
+}
+
+.summary-section-container {
+  background-color: hsl(183, 100%, 15%);
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 28px;
+  padding: 17px;
+  border-radius: 10px;
+}
+.summary-section-container button{
+  height: 47px;
+  font-size: 24px;
+  font-weight: 700;
+  font-family: "Space Mono", monospace;
+  border-radius: 7px;
+  border: none;
+  background:  #5ea191;
+}
+.summary-section {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 47px;
+}
+.tip-amount-summary-section{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+}
+.tip-amount{
+  color: white;
+  margin-bottom: 0;
+  font-size: 16px;
+}
+.per{
+  margin:0;
+  padding: 0;
+  font-size: 12px;
+  color: hsl(184, 14%, 56%);;
+}
+.tip-summary-dollar{
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+  color:#5ea191;
+}
+
+@media screen and (min-width: 702px) {
+  .tip-app{
+    padding-bottom: 182px;
+  }
+  .tip-title{
+    padding-top: 125px;
+    margin-bottom: 64px;
+  }
+  .tip-app-container{
+    width: 701px;
+    display: flex;
+    margin: auto auto;
+    padding: 0;
+  }
+  .tip-app-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .bill-section{
+    height: 55px;
+    margin-bottom: 34px;
+  }
+  .bill-section label{
+    font-size: 14px;
+  }
+  .desktop{
+    width: 45%;
+  }
+  .tip-section-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 88px;
+    gap: 11px;
+  }
+  .tip-section-container button{
+    height: 38px;
+    text-align: center;
+    padding-left: 0;
+    font-size: 18px;
+  }
+  .summary-section-container{
+    width: 45%;
+   margin-top: 35px;
+  }
+  .bill-section div{
+    height: 35px;
+  }
+  .custom{
+    width: 88px;
+  }
+  .summary-section {
+    margin-bottom: 94px;
+  }
+  
 }
