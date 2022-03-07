@@ -1,12 +1,12 @@
-import "./App.css";
+import "./TipApp.css";
 import { useState } from "react";
 
-function App() {
+function TipApp() {
   const [tipAmount, setTipAmount] = useState(0);
   const [people, setPeople] = useState(1);
   const [amountPerPerson, setAmountPerPerson] = useState(0);
   const [defaultTipRate, SetDefaultTipRate] = useState(0.05);
-  const [totalAmount, setTotalAmount] = useState("");
+  const [totalAmount, setTotalAmount] = useState(0);
 
   const onChangeAmount = (e) => {
     let amount = e.target.value / people;
@@ -20,6 +20,7 @@ function App() {
     let tipRate = e.target.value;
     let tip = (totalAmount * tipRate) / people;
     setTipAmount(tip.toPrecision(4));
+    console.log(totalAmount+tip);
     setAmountPerPerson((totalAmount + tip).toPrecision(4));
     SetDefaultTipRate(tipRate);
   };
@@ -44,11 +45,11 @@ function App() {
   };
 
   const onReset = () => {
-    setTipAmount(0)
-    setPeople(1)
-    setAmountPerPerson(0)
-    SetDefaultTipRate(0.05)
-    setTotalAmount()
+    setTipAmount(0);
+    setPeople(1);
+    setAmountPerPerson(0);
+    SetDefaultTipRate(0.05);
+    setTotalAmount();
   };
 
   return (
@@ -65,7 +66,7 @@ function App() {
                 <span className="dollar">$</span>
                 <input
                   onChange={onChangeAmount}
-                  type="number"
+                  type="text"
                   name="amount"
                   placeholder="Amount"
                 />
@@ -115,7 +116,7 @@ function App() {
                 </svg>
                 <input
                   onChange={onChangePeople}
-                  type="number"
+                  type="text"
                   name="people"
                   placeholder="No. of People"
                 />
@@ -148,4 +149,4 @@ function App() {
   );
 }
 
-export default App;
+export default TipApp;
