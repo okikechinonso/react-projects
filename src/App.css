@@ -63,6 +63,7 @@
 .bill-section input {
   padding-right: 18px;
   width: 80%;
+  
 }
 .tip-section input:focus,
 .bill-section input:focus {

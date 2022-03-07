@@ -2,72 +2,54 @@ import "./App.css";
 import { useState } from "react";
 
 function App() {
-  const [amount, setAmount] = useState(null);
   const [tipAmount, setTipAmount] = useState(0);
-  const [tipRate, setTipRate] = useState(5);
-  const [people, setPeople] = useState("");
-  const [peramount, setPerAmount] = useState(0);
+  const [people, setPeople] = useState(1);
+  const [amountPerPerson, setAmountPerPerson] = useState(0);
+  const [defaultTipRate, SetDefaultTipRate] = useState(0.05);
+  const [totalAmount, setTotalAmount] = useState("");
+
+  const onChangeAmount = (e) => {
+    let amount = e.target.value / people;
+    let tip = (amount * defaultTipRate) / people;
+    setTipAmount(tip.toPrecision(4));
+    setAmountPerPerson((amount + tip).toPrecision(4));
+    setTotalAmount(amount.toPrecision(4));
+  };
 
   const onClictButton = (e) => {
-    if (people === ""){
-      setTipAmount(
-        ((amount * (e.target.value / 100)) / 1).toPrecision(4)
-      );
-      setPerAmount((c) => (c = amount *  (e.target.value/100) / 1)).toPrecision(4);
-    }else{
-      setTipAmount(
-        ((amount * (e.target.value / 100)) / people).toPrecision(4)
-      );
-      setPerAmount(
-        ((amount * (e.target.value / 100)) / people).toPrecision(4)
-      );
-    }
-     
-    console.log(tipRate);
+    let tipRate = e.target.value;
+    let tip = (totalAmount * tipRate) / people;
+    setTipAmount(tip.toPrecision(4));
+    setAmountPerPerson((totalAmount + tip).toPrecision(4));
+    SetDefaultTipRate(tipRate);
   };
-  const onChangeAmount = (e) => {
-      if (e.target.value.trim() === "") {
-        setAmount(null);
-        setTipAmount(0);
-      }
 
-      if( people === "" && e.target.value.trim() !== ""){
-        setAmount(e.target.value);
-        setTipAmount(
-          ((e.target.value * (tipRate / 100)) / 1).toPrecision(4)
-        );
-        setPerAmount((c) => (c = e.target.value / 1)).toPrecision(4);
-      }
-      
-      console.log("typing")
-    
-  };
   const onChangePeople = (e) => {
-    if (e.target.value.trim() === "") {
-      setPeople((c) => (c = 1));
-      setTipAmount(
-        (c) => (c = ((amount * (tipRate / 100)) / 1).toPrecision(4))
-      );
-      setPerAmount(amount/1)
-      setPeople("")
+    let currPeople = e.target.value;
+    let tip = 0;
+    if (currPeople === "") {
+      currPeople = 1;
+      tip = (totalAmount * defaultTipRate) / currPeople;
+      setTipAmount(tip.toPrecision(4));
+      setAmountPerPerson((totalAmount / currPeople + tip).toPrecision(4));
+      setPeople(currPeople);
+      console.log(tipAmount + " " + currPeople);
     } else {
-      setPeople((c) => (c = e.target.value));
-      setTipAmount(
-        (c) =>
-          (c = ((amount * (tipRate / 100)) / e.target.value).toPrecision(5))
-      );
-      setPerAmount((c) => (c = amount / e.target.value));
-      console.log(amount + "tip");
+      tip = (totalAmount * defaultTipRate) / currPeople;
+      setTipAmount(tip.toPrecision(4));
+      setAmountPerPerson((totalAmount / currPeople + tip).toPrecision(4));
+      setPeople(currPeople);
     }
+    //console.log(totalAmount + " " + currPeople);
   };
 
-  const onReset = () =>{
-    setAmount("")
-    setPeople("")
-    setPerAmount(0)
-    setTipRate(5)
+  const onReset = () => {
     setTipAmount(0)
-  }
+    setPeople(1)
+    setAmountPerPerson(0)
+    SetDefaultTipRate(0.05)
+    setTotalAmount()
+  };
 
   return (
     <div className="tip-app">
@@ -86,7 +68,6 @@ function App() {
                   type="number"
                   name="amount"
                   placeholder="Amount"
-                  value={amount}
                 />
               </div>
             </div>
@@ -94,19 +75,19 @@ function App() {
               <label>Select Tip %</label>
               <br />
               <div className="tip-section-container">
-                <button onClick={onClictButton} className="tip" value="5">
+                <button onClick={onClictButton} className="tip" value="0.05">
                   5%
                 </button>
-                <button onClick={onClictButton} className="tip" value="10">
+                <button onClick={onClictButton} className="tip" value="0.1">
                   10%
                 </button>
-                <button onClick={onClictButton} className="tip" value="15">
+                <button onClick={onClictButton} className="tip" value="0.15">
                   15%
                 </button>
-                <button onClick={onClictButton} className="tip" value="20">
+                <button onClick={onClictButton} className="tip" value="0.20">
                   20%
                 </button>
-                <button onClick={onClictButton} className="tip" value="25">
+                <button onClick={onClictButton} className="tip" value="0.25">
                   25%
                 </button>
                 <button onClick={onClictButton} className="custom" value="5">
@@ -137,7 +118,6 @@ function App() {
                   type="number"
                   name="people"
                   placeholder="No. of People"
-                  value={people}
                 />
               </div>
             </div>
@@ -157,7 +137,7 @@ function App() {
                   <p className="tip-amount">Total</p>
                   <p className="per">/ person</p>
                 </div>
-                <p className="tip-summary-dollar">${peramount}</p>
+                <p className="tip-summary-dollar">${amountPerPerson}</p>
               </div>
             </div>
             <button onClick={onReset}>Reset</button>
