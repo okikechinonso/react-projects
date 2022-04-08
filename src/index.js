@@ -4,12 +4,14 @@ import "./index.css";
 import TipApp from "./tipapp/TipApp";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import WalletHome from "./wallet/home";
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
         <Route path="/tipapp" element={<TipApp />}></Route>
+        <Route path="/wallet" element={<WalletHome/>}></Route>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,

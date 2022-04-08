@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,500&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+.wallet-container{
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+}
+.wallet-header {
+    display: flex;
+    justify-content: space-between;
+    margin: 67px 20px 0 20px;
+}
+.wallet-header-title{
+    display: flex;
+    flex-direction: column;
+}
+
+.wallet-header-title .title1{
+    font-weight: 600;
+    font-size: 24px;
+}
+.wallet-header-title .title2{
+    font-weight: 600;
+    font-size: 16px;
+    color: #828282;
+}
+.wallet-header-img{
+    border-radius: 50%;
+}
+.wallet-balance{
+    position: absolute;
+    z-index: 50;
+    height: 140px;
+    width: 100%;
+    background: #5B259F;
+    border-radius: 40px;
+}
+.wallet-balance::before{
+    position: absolute;
+    content: "";
+    border: 2px solid #9038FF;
+    z-index: 50;
+    height: 143px;
+    width: 150px;
+    border-radius: 50%;
+}
+.wallet-balance-card{
+    position: relative;
+    background-color: red;
+    margin: 33px 20px 0 20px;
+}
+.cirlce-fill{
+    position: absolute;
+    z-index: 100;
+    content: "";
+    height: 54px;
+    width: 58.35px;
+    background: conic-gradient(transparent 0deg, transparent 90deg, #6E34B8 90deg, #6E34B8 180deg, #6E34B8 180deg, #6E34B8 250deg, transparent 245deg);;
+    left: 10.81px;
+    top: -27px;
+    border-radius: 50%;
+}
