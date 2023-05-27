@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import TipApp from "./tipapp/TipApp";
+import Tracker from "./tracker/tracker";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import WalletHome from "./wallet/home";
@@ -12,6 +13,8 @@ ReactDOM.render(
       <Routes>
         <Route path="/tipapp" element={<TipApp />}></Route>
         <Route path="/wallet" element={<WalletHome/>}></Route>
+        <Route path="/tracker" element={<Tracker/>}></Route>
+
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,
